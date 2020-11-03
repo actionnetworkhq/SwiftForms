@@ -26,6 +26,10 @@ open class FormDateCell: FormValueCell {
         hiddenTextField.isAccessibilityElement = false
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(FormDateCell.valueChanged(_:)), for: .valueChanged)
+
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        }
     }
     
     open override func update() {
